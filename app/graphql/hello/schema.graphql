@@ -1,0 +1,14 @@
+type Hello {
+    id:ID,
+    name:String,
+    age:String
+}
+
+
+# 新增数据  input是输入类型  不是的就是查询返回的数据
+input Register {
+  name: String!
+  phone: String!
+  password: String!
+  code: String!
+}

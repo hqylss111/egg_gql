@@ -1,0 +1,3 @@
+type Mutation {
+    addUserFun(data: Register):String
+}
