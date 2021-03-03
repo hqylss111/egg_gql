@@ -1,0 +1,41 @@
+# 用户
+type User {     
+    # 唯一索引
+    id: Int 
+   #手机号
+    phone:String,
+    #名字
+    name:String,
+    #密码
+    password:String,
+    # 头像
+    avatar:String
+}
+
+
+
+#添加用户
+input AddUser {
+    #手机号
+    phone:String,
+    #名字
+    name:String,
+    #密码
+    password:String,
+    # 头像
+    avatar:String
+}
+
+
+
+# 修改用户信息
+input UserMessage {
+    # id
+    id:Int!,
+    # 名字
+    name:String!
+    # 密码
+    password:String!
+    #头像
+    avatar:String
+}

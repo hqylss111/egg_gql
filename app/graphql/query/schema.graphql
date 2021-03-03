@@ -1,5 +1,8 @@
 type Query {
   hellos: [Hello!]
+  # 获取githubUrl url
   githubURL: String!
+  # 查找用户
+  passIsFindUser(phone:String):Boolean
 }
 

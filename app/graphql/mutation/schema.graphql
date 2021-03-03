@@ -1,3 +1,6 @@
 type Mutation {
-    addUserFun(data: Register):String
+    # 添加用户信息
+    addUserFun(data: AddUser):User
+    #更新用户信息
+    upDataUser(data:UserMessage):Boolean
 }

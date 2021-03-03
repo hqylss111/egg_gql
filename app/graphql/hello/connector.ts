@@ -9,9 +9,7 @@ export default class HelloConnector {
         return []
     }
     
-    async addUser(data){
-        return this.ctx.service.test.Saydemo(data)
-    }
+   
     //使用github进行登陆
     public githubURL() {
         const { login_url, client_id, scope } = this.ctx.app.config.github;
