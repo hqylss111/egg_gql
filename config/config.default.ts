@@ -1,14 +1,12 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
-
 export default (appInfo: EggAppInfo) => {
   const config = {} as PowerPartial<EggAppConfig>;
-
   // override config from framework / plugin
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1614566966730_3094';
 
   // add your egg config in here
-  config.middleware = ['graphql'];
+  config.middleware = ['auth','graphql'];
 
 
   //配置CSRF
@@ -48,7 +46,7 @@ export default (appInfo: EggAppInfo) => {
     origin: '*',
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
   };
- 
+
   //配置github
   config.github = {
     // 固定的
@@ -58,7 +56,7 @@ export default (appInfo: EggAppInfo) => {
     // github Client Secret
     client_secret: '01d25c5144ecca627fcf6f67b2934112f7c19a0d',
     // 此参数表示只获取用户信息
-    scope: [ 'user' ],
+    scope: ['user'],
   }
 
   // add your special config in here

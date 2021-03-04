@@ -8,8 +8,8 @@ export default {
         async addUserFun(_root: any, { data }, { connector }) {
             return connector.user.addUser(data)
         },
-        async  upDataUser(_root:any,{data},{connector}) {
-            return connector.user.upDataUserMessage(data)
+        async upDataUser(_root: any, { data }, { connector }) {
+            return connector.user.upDataUserMessage(data, connector)
         }
     }
 }

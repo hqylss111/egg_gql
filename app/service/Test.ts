@@ -15,7 +15,6 @@ export default class Test extends Service {
    
 
   public async Saydemo(data:any){
-    console.log(data,1);
     return '11111'
   }
   //测试登陆
