@@ -34,10 +34,7 @@ export default class Test extends Service {
   }
 
   public async findAllBookData(page, size) {
-    console.log(page,size);
-    
-    // const offset = (page - 1) * page
-    // const result = await this.ctx.model.Book.findAllData(page, offset)
-    
+    const result = await this.ctx.model.Book.findAllData(page,size)
+    return result
   }
 }

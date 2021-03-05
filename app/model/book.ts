@@ -42,11 +42,11 @@ module.exports = (app: Application) => {
     }
 
     //查询全部的数据分页
-    BOOK.findAllData = async function (limit: number,offset:number) {
+    BOOK.findAllData = async function (page,size) { // 1 10
         const result = await this.findAll({
             attributes:['id','bookName','bookType','bookPrice','picture',"created_at"],
-            limit,
-            offset
+            offset:(page - 1) * size, //0 -1 *10 = 0
+            limit:size
         })
         return result
     }
