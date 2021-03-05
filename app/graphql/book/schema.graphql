@@ -1,4 +1,4 @@
-# 用户
+# 书籍
 type Book {     
     # 唯一索引
     id: Int!,
@@ -11,5 +11,22 @@ type Book {
     # 图片
     picture:String
     #日期
-    created_at:String
+    created_at:String,
+}
+
+
+#添加数据/修改数据  
+input bookInput {
+    # 唯一索引 如果没有添加id 就是新增 - 如果没有添加就是修改
+    id: Int,
+   #数据名称
+    bookName:String,
+    #数据类型
+    bookType:String,
+    #价格
+    bookPrice:String,
+    # 图片
+    picture:String
+    #日期
+    created_at:String  
 }

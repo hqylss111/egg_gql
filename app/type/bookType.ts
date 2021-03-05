@@ -2,7 +2,8 @@ export interface BookData {
     bookName: string,
     bookTyoe: string,
     picture: string,
-    created_at: Date
+    created_at: Date,
+    id:number
 }
 
 

@@ -3,4 +3,6 @@ type Mutation {
     addUserFun(data: AddUser):User
     #更新用户信息
     upDataUser(data:UserMessage):Boolean
+    #新增数据数据或者修改数据
+    upDataBookIsAmendBookData(data:bookInput):Book
 }

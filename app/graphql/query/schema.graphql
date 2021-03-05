@@ -5,6 +5,6 @@ type Query {
   # 查找用户
   passIsFindUser(phone:String):Boolean
   #查询书的全部数据
-  findBookAllData:[Book]
+  findBookAllData(page:Int,size:Int):[Book]
 }
 

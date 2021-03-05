@@ -9,18 +9,21 @@ module.exports = (app: Application) => {
         bookPrice: INTEGER, //价格
         picture: STRING,//图片
         created_at: STRING,//存放日期
+    },{
+        
     })
 
     //新建书籍
     BOOK.createBook = async function (data: BookData) {
+        console.log(data, 16);
         const result = await this.create(data)
         return result
     }
 
     //通过书的id 查询书籍
-    BOOK.idFindBook = async function (id:number) {
+    BOOK.idFindBook = async function (id: number) {
         const result = await this.findAll({
-            where:{
+            where: {
                 id
             }
         })
@@ -29,22 +32,33 @@ module.exports = (app: Application) => {
 
     //修改书籍 
     BOOK.updateBook = async function (data) {
-        const result = await this.update(data,{
-            where:{
-                id:data.id
-            }  
+        const { bookName, bookType, bookPrice, picture, created_at } = data;
+        const result = await this.update({ bookName, bookType, bookPrice, picture, created_at }, {
+            where: {
+                id: 2
+            }
         })
         return result;
     }
 
     //查询全部的数据分页
-    BOOK.findAllData = async function (limit:number) {
-        const offset = (limit - 1) * limit
+    BOOK.findAllData = async function (limit: number,offset:number) {
         const result = await this.findAll({
+            attributes:['id','bookName','bookType','bookPrice','picture',"created_at"],
             limit,
             offset
         })
         return result
+    }
+
+
+    //查询一条数据
+    BOOK.findOneData = async function (id) {
+        return await this.findOne({
+            where: {
+                id
+            }
+        })
     }
 
     return BOOK;
