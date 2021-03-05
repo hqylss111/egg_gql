@@ -7,7 +7,7 @@ const isAutoFun = (data) => {
 
 export default function AuthMiddleware(_options: any, _app: Application) {
     return async (ctx: Context, next: any) => {
-        if (ctx.app.config.graphql.graphiql) {
+        if (ctx.app.config.graphql.graphql) {
             const bodyData = ctx.request.body;
             //不需要验证的接口
             const Au_token = ctx.request.header['Au_token'];
@@ -15,20 +15,20 @@ export default function AuthMiddleware(_options: any, _app: Application) {
             const operationName = bodyData.operationName
             if (operationName !== null) {
                 //如果存在不需要验证token
-                if(isAutoFun(operationName)){
+                if (!isAutoFun(operationName)) {
                     return await next()
-                }else{
+                } else {
                     return Au_token ? await next() : null
                 }
             } else {
                 let str = bodyData.query.split('{')[1].split("(")[0].trim();
-                if(!isAutoFun(str)){
-                    return await next(111111);
-                }else{
+                if (!isAutoFun(str)) {
+                    return await next();
+                } else {
                     return Au_token ? await next() : null
                 }
             }
-        }else{
+        } else {
             return await next()
         }
     }

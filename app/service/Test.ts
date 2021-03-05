@@ -12,12 +12,8 @@ export default class Test extends Service {
   public async sayHi() {
     return 
   }
-   
-
-  public async Saydemo(data:any){
+  public async Saydemo(){
     return '11111'
   }
   //测试登陆
-
-  
 }
